@@ -1,3 +1,7 @@
-<p>
-  pizza works!
-</p>
+<h2>Pizzas!</h2>
+<ul>
+  <li *ngFor="let pizza of pizzas">
+    <div>Name: {{pizza.name}} </div>
+    <div>Slices: {{pizza.slices}}</div>
+  </li>
+</ul>
