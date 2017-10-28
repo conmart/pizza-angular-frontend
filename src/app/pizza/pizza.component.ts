@@ -11,6 +11,11 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() {
+    this.fetchPizzas();
+  }
+
+  fetchPizzas() {
+    console.log("fetching pizzas");
     this.pizzaService.getPizzas().subscribe((response) => {
       this.pizzas = response.json();
     })

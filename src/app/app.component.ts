@@ -16,6 +16,8 @@ export class AppComponent {
   constructor(private userService: UserService) {}
   login(username: String, password: String) {
     console.log("logging in from app component")
-    this.userService.login(this.username, this.password)
+    this.userService.login(this.username, this.password).subscribe(res => {
+      console.log("response is", res)
+    })
   }
 }
