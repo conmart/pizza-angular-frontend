@@ -24,7 +24,7 @@ export class UserService {
   }
 
   logout() {
-    let req = this.http.post("http://localhost:3000/logout", {},
+    let req = this.http.get("http://localhost:3000/logout",
           {withCredentials: true})
     req.subscribe(res => this.updateLogin(false), err => this.updateLogin(false));
     return req;
