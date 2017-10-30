@@ -7,6 +7,6 @@ export class UserService {
 
   login(username: String, password: String) {
     console.log("logging in wow", username, password)
-    return this.http.post("http://localhost:3000/login", {username: username, password: password}, {headers: new Headers(["Content-Type: application/x-www-form-urlencoded"])})
+    return this.http.post("http://localhost:3000/login", {username: username, password: password}, {withCredentials: true})
   }
 }
