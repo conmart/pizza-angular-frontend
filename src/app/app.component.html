@@ -1,9 +1,18 @@
-<form (ngSubmit)="login()">Log in:
-<br />
+
+<div *ngIf="!loggedIn">
 Username: <input name="username" [(ngModel)]="username" />
 <br />
 Password: <input name="password" type="password" [(ngModel)]="password" />
+<form (ngSubmit)="login()">
 <button>Log in</button>
 </form>
-
+<form (ngSubmit)="signup()">
+  <button>Sign up</button>
+</form>
+</div>
+<div *ngIf="loggedIn">
+  <form (ngSubmit)="logout()">
+    <button>Log out</button>
+  </form>
+</div>
 <app-pizza></app-pizza>

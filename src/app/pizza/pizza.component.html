@@ -1,5 +1,8 @@
 <h2>Pizzas!</h2>
-<ul>
+<h3 *ngIf="errorMessage">
+  {{errorMessage}}
+</h3>
+<ul *ngIf="!errorMessage">
   <li *ngFor="let pizza of pizzas">
     <div>Name: {{pizza.name}} </div>
     <div>Slices: {{pizza.slices}}</div>
