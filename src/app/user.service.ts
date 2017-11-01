@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http'
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/observable'
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class UserService {
@@ -10,13 +11,13 @@ export class UserService {
   constructor(private http: Http) { }
 
   login(username: String, password: String) {
-    let req = this.http.post("http://localhost:3000/login", {username: username, password: password}, {withCredentials: true});
+    let req = this.http.post(`${environment.backend_url}/login`, {username: username, password: password}, {withCredentials: true});
     req.subscribe(res => this.updateLogin(true), err => this.updateLogin(false));
     return req;
   }
 
   signup(username: String, password: String) {
-    let req = this.http.post("http://localhost:3000/signup",
+    let req = this.http.post(`${environment.backend_url}/signup`,
           {username: username, password: password},
           {withCredentials: true})
     req.subscribe(res => this.updateLogin(true), err => this.updateLogin(false));
@@ -24,7 +25,7 @@ export class UserService {
   }
 
   logout() {
-    let req = this.http.get("http://localhost:3000/logout",
+    let req = this.http.get(`${environment.backend_url}/logout`,
           {withCredentials: true})
     req.subscribe(res => this.updateLogin(false), err => this.updateLogin(false));
     return req;
